@@ -46,9 +46,10 @@ exports.delete = function(req, res) {
 				oldest = docs[i];
 			}
 		}
-		console.log(oldest)
+		Cat.remove(oldest, function(err) {
+			if (err) throw err;
+		});
 	});
-	console.log('Kitty has been eaten by a grue.');
 	//redir
 	res.redirect('/cats');
 };
