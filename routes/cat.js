@@ -55,7 +55,7 @@ exports.delete = function(req, res) {
 };
 
 exports.colorlist = function(req, res) {
-	var cate = Cat.find({ color: req }, function (err, docs) {
+	var cate = Cat.find({ color: req.params.color.split(':')[1] }, function (err, docs) {
 		if (err) throw err;
 		res.render('cats', {cats: docs, title: 'Cats of a Certain Color'});
 	});
