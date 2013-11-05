@@ -18,20 +18,21 @@ exports.list = function(req, res) {
 
 //making new cats
 exports.create = function(req, res) {
-	//create a cat
-	var colors = ['white', 'black', 'calico', 'orange', 'purple'];
+	//create a cats
+	var colors = ['white', 'black', 'calico', 'tabby', 'purple'];
 	var thiscolor = colors[math.floor(math.random() * colors.length)];
-	var names = new Array;
-	fs.readFile('./public/data/names.csv', function (err, data) {
+	var names;
+	var thisname;
+	fs.readFile('./public/data/names.csv', 'utf8', function (err, data) {
 		if (err) throw err;
-		names.push(data.toString());
+		names = data.split('\r');
+		thisname = names[math.floor(math.random() * names.length)];
+		var newcat = new Cat({ age: math.floor(math.random()*20) , color: [thiscolor], name: thisname });
+		newcat.save(function (err) {
+			if (err) throw err;
+		});
 	});
-	console.log(names);
-	//var thisname = names[math.floor(math.random() * names.length)];
-	var newcat = new Cat({ age: math.floor(math.random()*20) , color: [thiscolor], name: 'Kitty'});
-	newcat.save(function (err) {
-		if (err) throw err;
-	})
+	
 	//redir
 	res.redirect('/cats');
 };
