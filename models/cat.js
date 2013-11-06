@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
-//what does this line do?
-mongoose.connect('localhost');
+mongoose.connect(process.env.MONGOLAB_URI || 'localhost');
 var db = mongoose.connection;
 
 var userSchema = mongoose.Schema({

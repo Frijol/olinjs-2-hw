@@ -4,7 +4,6 @@
  */
 
  var Cat = require('../models/cat');
- var math = require('mathjs')();
  var fs = require('fs');
 
 //listing cats
@@ -20,14 +19,14 @@ exports.list = function(req, res) {
 exports.create = function(req, res) {
 	//create a cat
 	var colors = ['white', 'black', 'calico', 'tabby', 'purple'];
-	var thiscolor = colors[math.floor(math.random() * colors.length)];
+	var thiscolor = colors[Math.floor(Math.random() * colors.length)];
 	var names;
 	var thisname;
 	fs.readFile('./public/data/names.csv', 'utf8', function (err, data) {
 		if (err) throw err;
 		names = data.split('\r');
-		thisname = names[math.floor(math.random() * names.length)];
-		var newcat = new Cat({ age: math.floor(math.random()*20)+1 , color: [thiscolor], name: thisname });
+		thisname = names[math.floor(Math.random() * names.length)];
+		var newcat = new Cat({ age: Math.floor(Math.random()*20)+1 , color: [thiscolor], name: thisname });
 		newcat.save(function (err) {
 			if (err) throw err;
 		});
