@@ -9,8 +9,6 @@
     "express": "3.x",
     "jade": "*",
     "mongoose": "3.x",
-    "fs": "*",
-    "csv": "*"
   },
     "engines": {
       "node": "0.8.14",
