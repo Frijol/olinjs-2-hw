@@ -12,13 +12,13 @@ exports.list = function(req, res) {
 	//get the list of cats
 	var cats = Cat.find({}, function (err, docs) {
 		if (err) throw err;
-		res.render('cats', {cats: docs, title: 'List of cats'});
+		res.render('cats', {cats: docs.sort(function(a,b) { return parseFloat(a.age) - parseFloat(b.age) } ), title: 'List of cats'});
 	}) ;
 };
 
 //making new cats
 exports.create = function(req, res) {
-	//create a cats
+	//create a cat
 	var colors = ['white', 'black', 'calico', 'tabby', 'purple'];
 	var thiscolor = colors[math.floor(math.random() * colors.length)];
 	var names;
@@ -27,12 +27,11 @@ exports.create = function(req, res) {
 		if (err) throw err;
 		names = data.split('\r');
 		thisname = names[math.floor(math.random() * names.length)];
-		var newcat = new Cat({ age: math.floor(math.random()*20) , color: [thiscolor], name: thisname });
+		var newcat = new Cat({ age: math.floor(math.random()*20)+1 , color: [thiscolor], name: thisname });
 		newcat.save(function (err) {
 			if (err) throw err;
 		});
 	});
-	
 	//redir
 	res.redirect('/cats');
 };
@@ -58,6 +57,6 @@ exports.delete = function(req, res) {
 exports.colorlist = function(req, res) {
 	var cate = Cat.find({ color: req.params.color.split(':')[1] }, function (err, docs) {
 		if (err) throw err;
-		res.render('cats', {cats: docs, title: 'Cats of a Certain Color'});
+		res.render('cats', {cats: docs.sort(function(a,b) { return parseFloat(a.age) - parseFloat(b.age) } ), title: 'Cats of a Certain Color'});
 	});
 }

@@ -1,0 +1,62 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install', 'csv' ]
+2 info using npm@1.3.11
+3 info using node@v0.10.21
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'csv', null ]
+6 verbose cache add name=undefined spec="csv" args=["csv",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'csv',
+7 verbose parsed url   path: 'csv',
+7 verbose parsed url   href: 'csv' }
+8 silly lockFile 6cc98174-csv csv
+9 verbose lock csv /Users/timryan/.npm/6cc98174-csv.lock
+10 silly lockFile 6cc98174-csv csv
+11 silly lockFile 6cc98174-csv csv
+12 verbose addNamed [ 'csv', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile 34c7fd74-csv csv@
+15 verbose lock csv@ /Users/timryan/.npm/34c7fd74-csv.lock
+16 silly addNameRange { name: 'csv', range: '*', hasData: false }
+17 verbose url raw csv
+18 verbose url resolving [ 'https://registry.npmjs.org/', './csv' ]
+19 verbose url resolved https://registry.npmjs.org/csv
+20 info trying registry request attempt 1 at 16:36:16
+21 http GET https://registry.npmjs.org/csv
+22 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+23 info trying registry request attempt 2 at 16:36:26
+24 http GET https://registry.npmjs.org/csv
+25 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+26 info trying registry request attempt 3 at 16:37:27
+27 http GET https://registry.npmjs.org/csv
+28 silly lockFile 34c7fd74-csv csv@
+29 silly lockFile 34c7fd74-csv csv@
+30 error Error: connect ECONNREFUSED
+30 error     at errnoException (net.js:901:11)
+30 error     at Object.afterConnect [as oncomplete] (net.js:892:19)
+30 error  { [Error: connect ECONNREFUSED]
+30 error   code: 'ECONNREFUSED',
+30 error   errno: 'ECONNREFUSED',
+30 error   syscall: 'connect' }
+31 error If you are behind a proxy, please make sure that the
+31 error 'proxy' config is set properly.  See: 'npm help config'
+32 error System Darwin 11.4.2
+33 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "csv"
+34 error cwd /Users/timryan/olinjs-2-hw
+35 error node -v v0.10.21
+36 error npm -v 1.3.11
+37 error syscall connect
+38 error code ECONNREFUSED
+39 error errno ECONNREFUSED
+40 error stack Error: connect ECONNREFUSED
+40 error stack     at errnoException (net.js:901:11)
+40 error stack     at Object.afterConnect [as oncomplete] (net.js:892:19)
+41 verbose exit [ 1, true ]
