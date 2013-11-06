@@ -25,7 +25,7 @@ exports.create = function(req, res) {
 	fs.readFile('./public/data/names.csv', 'utf8', function (err, data) {
 		if (err) throw err;
 		names = data.split('\r');
-		thisname = names[math.floor(Math.random() * names.length)];
+		thisname = names[Math.floor(Math.random() * names.length)];
 		var newcat = new Cat({ age: Math.floor(Math.random()*20)+1 , color: [thiscolor], name: thisname });
 		newcat.save(function (err) {
 			if (err) throw err;
